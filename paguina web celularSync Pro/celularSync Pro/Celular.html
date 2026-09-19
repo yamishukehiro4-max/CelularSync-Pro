@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CelularSync Pro - Gestión Inteligente</title>
+    <link rel="stylesheet" href="Celular.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Fondo Animado Interactivo -->
+    <div class="animated-background" id="bg-particles"></div>
+
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-mobile-screen-button"></i> CELULARSYNC PRO
+        </div>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#" onclick="cambiarPestana('inicio', this)" class="active">Inicio</a></li>
+            <li><a href="#" onclick="cambiarPestana('caracteristicas', this)">Características</a></li>
+            <li><a href="#" onclick="cambiarPestana('sistema', this)">El Sistema</a></li>
+            <li><a href="#" onclick="cambiarPestana('panel-admin', this)">Panel Admin</a></li>
+            <li><a href="#" onclick="cambiarPestana('acerca', this)">Acerca del Proyecto</a></li>
+        </ul>
+        <button class="btn-usuario" onclick="toggleModoUsuario()">
+            <i class="fa-solid fa-user-astronaut"></i> <span id="texto-btn-usuario">Vista Usuario / Cliente</span>
+        </button>
+    </nav>
+
+    <!-- CONTENEDOR PRINCIPAL ADMINISTRADOR (Intacto) -->
+    <main id="admin-view">
+        
+        <!-- SECCIÓN: INICIO -->
+        <section id="inicio" class="seccion-activa fade-in">
+            <div class="hero-content">
+                <h1 class="glitch-effect">Gestión Inteligente de Inventario y Ventas</h1>
+                <p class="hero-subtitle">Descubre el sistema definitivo desarrollado en Python. Control de stock, facturación en PDF, estadísticas en tiempo real y carritos de compra, todo en un entorno seguro y altamente optimizado.</p>
+                
+                <div class="historia-box">
+                    <h2><i class="fa-solid fa-circle-info"></i> ¿De qué trata CelularSync Pro?</h2>
+                    <p>CelularSync Pro (anteriormente conocido como Nexus GX) es un sistema integral de software diseñado específicamente para la administración completa de tiendas de dispositivos móviles. Se trata de una plataforma que unifica el control del inventario, la facturación directa a clientes y la generación de métricas de ventas en una sola interfaz fluida y fácil de usar, desarrollada desde cero en Python y conectada a bases de datos relacionales.</p>
+                    
+                    <h2><i class="fa-solid fa-bullseye"></i> ¿Para qué sirve?</h2>
+                    <p>El sistema sirve para eliminar por completo el uso de papel, cuadernos o bases de Excel desordenadas. Permite registrar cada entrada y salida de mercancía (celulares, fundas, audífonos, repuestos). Sirve para que los dueños de negocios sepan exactamente cuánto dinero tienen invertido, qué productos están a punto de agotarse y cuáles son los dispositivos más vendidos gracias a sus gráficos integrados.</p>
+
+                    <h2><i class="fa-solid fa-calendar-day"></i> Impacto en el día a día</h2>
+                    <p>En el día a día, CelularSync Pro le ahorra horas de trabajo a los administradores. Evita los errores humanos al hacer el "cuadre de caja" diario, previene el robo hormiga al tener un registro exacto del stock, y acelera el proceso de venta. Un cliente llega, el vendedor selecciona el producto, lo agrega al carrito virtual del sistema y con un clic le imprime su comprobante en PDF. Todo en menos de 1 minuto.</p>
+
+                    <h2><i class="fa-solid fa-clock-rotate-left"></i> El Origen y los Intentos</h2>
+                    <p>Este proyecto nació como un reto monumental en PyCharm para el módulo de Desarrollo de Software. Pasamos por incontables intentos y errores; desde botones en Tkinter que no respondían, hasta consultas SQL que no actualizaban el stock al confirmar una venta. Cada error fue una oportunidad de aprendizaje. Depuramos el código, mejoramos la interfaz gráfica integrando Matplotlib para las estadísticas y creamos una arquitectura robusta que hoy funciona de manera impecable.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CARACTERÍSTICAS -->
+        <section id="caracteristicas" class="seccion-oculta">
+            <h2 class="section-title">Características del Sistema</h2>
+            <p class="section-desc">Haz clic en cada módulo para ver su información detallada.</p>
+            <div class="grid-caracteristicas">
+                <div class="card-interactiva" onclick="abrirModal('Control de Inventario', 'fa-boxes-stacked', 'El módulo de inventario es el corazón del sistema. Sirve para registrar cada producto nuevo con su precio de compra, precio de venta, código de barras y cantidad. Te ayuda a mantener un orden estricto, alertando cuando un producto tiene menos de 5 unidades para que el administrador pueda reabastecer a tiempo y no perder ventas.')">
+                    <div class="card-img-placeholder">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <span>Clic para expandir info</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Inventario Inteligente</h3>
+                        <p>Gestión automatizada de stock y registro de productos en la base de datos.</p>
+                    </div>
+                </div>
+
+                <div class="card-interactiva" onclick="abrirModal('Reportes y Estadísticas', 'fa-chart-pie', 'Usando la librería Matplotlib de Python, este módulo genera gráficas de pastel y de barras. Sirve para analizar visualmente el rendimiento del negocio. ¿Se vendieron más equipos Samsung o Xiaomi este mes? El sistema te lo dice con un solo clic, ayudando al dueño a tomar mejores decisiones de inversión.')">
+                    <div class="card-img-placeholder">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span>Clic para expandir info</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Gráficas Matplotlib</h3>
+                        <p>Visualización de ventas mensuales y marcas más populares en tiempo real.</p>
+                    </div>
+                </div>
+
+                <div class="card-interactiva" onclick="abrirModal('Punto de Venta (POS)', 'fa-file-invoice-dollar', 'El carrito de compras interno del administrador. Sirve para que el cajero agregue los productos que el cliente se lleva. Calcula automáticamente el subtotal, el IVA y el total. Al finalizar, genera un ticket digital en formato PDF que sirve como garantía para el comprador.')">
+                    <div class="card-img-placeholder">
+                        <i class="fa-solid fa-file-invoice-dollar"></i>
+                        <span>Clic para expandir info</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Facturación Rápida</h3>
+                        <p>Módulo de cobro con cálculo de totales y exportación de recibos PDF.</p>
+                    </div>
+                </div>
+
+                <div class="card-interactiva" onclick="abrirModal('Arquitectura Limpia', 'fa-python', 'Todo el código detrás de la interfaz. Sirve para garantizar que el programa sea rápido, no consuma toda la memoria RAM de la computadora y pueda ser actualizado fácilmente. Utilizamos Git y GitHub para respaldar cada línea de código y evitar pérdidas.')">
+                    <div class="card-img-placeholder">
+                        <i class="fa-brands fa-python"></i>
+                        <span>Clic para expandir info</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Desarrollo PyCharm</h3>
+                        <p>Estructura de código profesional optimizada y versionada en GitHub.</p>
+                    </div>
+                </div>
+
+                <div class="card-interactiva" onclick="abrirModal('Autenticación y Seguridad', 'fa-shield-halved', 'El sistema cuenta con un módulo de inicio de sesión y registro protegido. Diferencia automáticamente entre usuarios normales (cajeros) y el Administrador Supremo. Incluye validaciones estrictas, como el requerimiento de números telefónicos de exactamente 6 dígitos para la creación de cuentas, garantizando la integridad de la base de datos.')">
+                    <div class="card-img-placeholder">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Clic para expandir info</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Autenticación Segura</h3>
+                        <p>Gestión de accesos con roles definidos y validación estricta de credenciales.</p>
+                    </div>
+                </div>
+
+                <div class="card-interactiva" onclick="abrirModal('Recuperación de Credenciales', 'fa-key', '¿Olvidaste tu contraseña? El sistema incluye un diálogo de recuperación interactivo. Verifica la identidad del usuario solicitando su nombre de usuario y el teléfono registrado exactamente como está en la base de datos SQL para permitir la actualización de la contraseña de forma segura y sin comprometer información.')">
+                    <div class="card-img-placeholder">
+                        <i class="fa-solid fa-key"></i>
+                        <span>Clic para expandir info</span>
+                    </div>
+                    <div class="card-info">
+                        <h3>Recuperación de Cuentas</h3>
+                        <p>Restablecimiento de contraseñas validando el número de teléfono registrado en el sistema.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: EL SISTEMA (ARQUITECTURA) -->
+        <section id="sistema" class="seccion-oculta">
+            <h2 class="section-title">Arquitectura y Tecnologías</h2>
+            <div class="sistema-container">
+                <div class="tech-stack">
+                    <div class="tech-item" onclick="abrirModal('Python (Backend)', 'fa-python', 'Lenguaje principal del proyecto. Lo usamos por su sintaxis limpia y su poder para manejar la lógica matemática del inventario. Se encarga de procesar las ventas, hacer descuentos y gestionar la comunicación principal.')">
+                        <i class="fa-brands fa-python tech-icon"></i> <span>Python</span>
+                    </div>
+                    <div class="tech-item" onclick="abrirModal('Tkinter (UI)', 'fa-window-maximize', 'Es la librería gráfica de Python. La usamos para crear las ventanas, los botones, las tablas y las cajas de texto de la aplicación de escritorio. Fue un reto acomodar los widgets, pero logramos una interfaz intuitiva para el usuario.')">
+                        <i class="fa-solid fa-window-maximize tech-icon"></i> <span>Tkinter</span>
+                    </div>
+                    <div class="tech-item" onclick="abrirModal('Bases de Datos', 'fa-database', 'Toda la información (usuarios, productos, ventas) se almacena aquí. Usamos sentencias SQL estructuradas para guardar y consultar datos de forma segura, evitando pérdidas de información si se apaga la computadora.')">
+                        <i class="fa-solid fa-database tech-icon"></i> <span>SQL DB</span>
+                    </div>
+                    <div class="tech-item" onclick="abrirModal('Git & GitHub', 'fa-github', 'Nuestro sistema de control de versiones. Nos sirvió para guardar el progreso diario, revertir errores críticos si el código se rompía y tener el proyecto respaldado en la nube de forma profesional.')">
+                        <i class="fa-brands fa-github tech-icon"></i> <span>GitHub</span>
+                    </div>
+                </div>
+                
+                <div class="info-tecnica">
+                    <h3>Profundizando en el Código</h3>
+                    <p>La arquitectura de CelularSync Pro se basa en el patrón Modelo-Vista-Controlador (MVC). Esto significa que separamos estrictamente la parte visual (lo que ve el usuario) de la lógica de negocio (los cálculos) y de la base de datos. Esta modularidad nos permitió trabajar en PyCharm de forma mucho más limpia.</p>
+                    <p>Por ejemplo, cuando se realiza una venta, el <strong>Controlador</strong> recibe la orden, valida que haya stock suficiente, le dice a la <strong>Base de Datos (Modelo)</strong> que reste esa cantidad, y finalmente actualiza la tabla en la <strong>Vista (Tkinter)</strong>. Además, implementamos validaciones de seguridad para evitar inyecciones SQL.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PANEL ADMIN -->
+        <section id="panel-admin" class="seccion-oculta">
+            <h2 class="section-title">El Poder del Administrador</h2>
+            <p class="section-desc">El núcleo de gestión de CelularSync Pro cuenta con herramientas exclusivas.</p>
+            <div class="admin-features-grid">
+                <div class="admin-feature-box">
+                    <div class="admin-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+                    <h3>Agregar Productos</h3>
+                    <p>Interfaz para registrar nuevos dispositivos. Permite ingresar el IMEI, marca, modelo, precio de costo y precio de venta. El sistema calcula el margen de ganancia automáticamente. Sirve para mantener el catálogo actualizado y clasificar entre celulares, accesorios o repuestos.</p>
+                </div>
+                <div class="admin-feature-box">
+                    <div class="admin-icon"><i class="fa-solid fa-users-gear"></i></div>
+                    <h3>Gestión de Usuarios</h3>
+                    <p>Buscador integrado para gestionar las cuentas del personal. El administrador puede crear perfiles para cajeros con permisos limitados o perfiles administrativos. Permite buscar usuarios por ID o nombre al instante.</p>
+                </div>
+                <div class="admin-feature-box">
+                    <div class="admin-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Métricas de Venta</h3>
+                    <p>Panel de control gerencial. Genera reportes sobre los días de mayor flujo de clientes, las marcas más rentables y alertas de productos estancados. Toda esta información se presenta en cuadros y gráficas coloridas para una fácil interpretación del dueño.</p>
+                </div>
+                <div class="admin-feature-box">
+                    <div class="admin-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                    <h3>Búsqueda y Filtrado Avanzado</h3>
+                    <p>Permite rastrear cualquier venta buscando por el nombre del cliente, modelo del producto o fecha exacta. Además, incluye un panel especial para buscar facturas específicas de clientes registrados y re-imprimir sus comprobantes HTML/PDF con un solo clic en caso de pérdida.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: ACERCA DE -->
+        <section id="acerca" class="seccion-oculta">
+            <h2 class="section-title">Equipo de Desarrollo</h2>
+            <div class="equipo-grid">
+                <div class="developer-card">
+                    <div class="dev-avatar"><i class="fa-solid fa-user-ninja"></i></div>
+                    <h3>Jonathan Alexander Esquivel Prado</h3>
+                    <p>Líder de Desarrollo, UI/UX y Backend</p>
+                </div>
+                <div class="developer-card">
+                    <div class="dev-avatar"><i class="fa-solid fa-user-astronaut"></i></div>
+                    <h3>Anderson Caleb Ponce Rosales</h3>
+                    <p>Desarrollador Backend y Estructuración lógica</p>
+                </div>
+                <div class="developer-card">
+                    <div class="dev-avatar"><i class="fa-solid fa-user-shield"></i></div>
+                    <h3>Diego Carcamo Ortiz</h3>
+                    <p>Gestión de Base de Datos y Testing</p>
+                </div>
+            </div>
+            <div class="institucion-info">
+                <h3>Instituto Nacional General Francisco Menéndez (INFRAMEN)</h3>
+                <p>Proyecto del módulo de Desarrollo de Software. Unificando lógica, bases de datos y diseño para la creación de un sistema real empresarial.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================================= -->
+    <!-- CONTENEDOR VISTA USUARIO / DOCUMENTACIÓN INTERACTIVA      -->
+    <!-- ========================================================= -->
+    <main id="user-view" class="seccion-oculta">
+        
+        <!-- EXPLICACIÓN DE LA INTERFAZ DEL CLIENTE -->
+        <div class="user-explanation-hero fade-in">
+            <h2><i class="fa-solid fa-desktop"></i> La Experiencia del Cliente (Frontend)</h2>
+            <p>Esta sección no es la tienda real, sino una <strong>documentación interactiva</strong> que explica cómo interactúan los clientes con CelularSync Pro. Aquí detallamos los módulos que el comprador ve desde su pantalla, cómo exploran el inventario y cómo se procesan sus compras.</p>
+            <p class="instruccion-destacada">💡 <strong>Haz clic en cualquier producto o tarjeta de función abajo</strong> para abrir un panel explicativo sobre qué es, para qué sirve y cómo el sistema Python lo procesa en la base de datos.</p>
+        </div>
+
+        <!-- MÓDULOS DEL USUARIO (Explicativos) -->
+        <div class="user-features-grid fade-in">
+            <div class="user-feature-card" onclick="abrirModal('Catálogo Dinámico', 'fa-store', 'El catálogo dinámico es la vitrina digital. Sirve para que el cliente navegue por todos los productos disponibles (celulares, accesorios, adaptadores). En el backend, Python extrae estos datos en tiempo real mediante consultas SQL (SELECT * FROM inventario WHERE stock > 0), asegurando que el cliente nunca vea un producto agotado.')">
+                <i class="fa-solid fa-store user-feat-icon"></i>
+                <h3>Exploración de Catálogo</h3>
+                <p>Vitrina sincronizada en tiempo real con la base de datos.</p>
+            </div>
+            
+            <div class="user-feature-card" onclick="abrirModal('Carrito de Compras Session', 'fa-cart-arrow-down', 'El carrito virtual sirve para retener temporalmente los productos seleccionados por el cliente antes de pagar. En el sistema, esto funciona como un arreglo o lista en la memoria de la sesión (como se demuestra en la pestaña flotante derecha). Suma los precios, calcula impuestos y prepara la estructura de datos que será enviada a la tabla de Ventas.')">
+                <i class="fa-solid fa-cart-arrow-down user-feat-icon"></i>
+                <h3>Gestión del Carrito</h3>
+                <p>Acumulación de productos y cálculo automático de totales.</p>
+            </div>
+
+            <div class="user-feature-card" onclick="abrirModal('Proceso de Checkout Segura', 'fa-cash-register', 'Este módulo es el paso final. Sirve para confirmar la transacción. Al dar clic en pagar, el sistema hace tres cosas simultáneamente: 1) Ejecuta un UPDATE en SQL para restar el stock. 2) Ejecuta un INSERT para guardar el registro de la venta y el dinero ingresado. 3) Genera el recibo final para el cliente.')">
+                <i class="fa-solid fa-cash-register user-feat-icon"></i>
+                <h3>Checkout y Descuento de Stock</h3>
+                <p>Cierre de venta y actualización automática del inventario.</p>
+            </div>
+        </div>
+
+        <hr class="divisor-elegante">
+
+        <!-- DEMOSTRACIÓN TÉCNICA DEL CATÁLOGO (Más productos, interactivos) -->
+        <div class="store-header fade-in">
+            <div class="store-title-box">
+                <h2><i class="fa-solid fa-mobile-retro"></i> Catálogo de Demostración Técnica</h2>
+                <p>Haz clic en el título/imagen de los productos para ver su información técnica y propósito en la tienda, o usa el botón para probar la lógica del carrito.</p>
+            </div>
+            <div class="cart-icon" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+        
+        <div class="productos-grid fade-in">
+            
+            <!-- Producto 1: POCO -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('POCO X6 Pro', 'fa-mobile', 'Un dispositivo enfocado en el alto rendimiento gaming (capaz de correr juegos a más de 60 FPS estables). En el sistema, este producto está categorizado bajo Smartphones de Gama Media-Alta. Sirve para atraer clientes jóvenes y gamers. Su alto margen de rotación lo hace un producto clave para los gráficos de Matplotlib en el panel Admin.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1598327105666-5b89351cb315?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="POCO X6 Pro">
+                    <h3>POCO X6 Pro</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-microchip"></i> MediaTek Dimensity 8300-Ultra</li>
+                        <li><i class="fa-solid fa-gamepad"></i> Rendimiento Gaming (60+ FPS)</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$320.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('POCO X6 Pro', 320)">Añadir al carrito</button>
+            </div>
+            
+            <!-- Producto 2: LOGIC L68M PLUS -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('LOGIC L68M PLUS', 'fa-mobile-screen', 'IMPORTANTE: Este es un Smartphone, no un reloj inteligente. En la base de datos, este dispositivo se etiqueta como un smartphone de entrada. Sirve como una opción económica y accesible para el cliente. Es vital tener estos modelos en inventario para cubrir todos los segmentos del mercado y maximizar el alcance de ventas.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="LOGIC L68M PLUS">
+                    <h3>LOGIC L68M PLUS</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-mobile-screen"></i> Smartphone de Entrada</li>
+                        <li><i class="fa-solid fa-battery-full"></i> Batería de larga duración</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$110.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('LOGIC L68M PLUS', 110)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 3: Samsung S21 -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Samsung Galaxy S21', 'fa-camera', 'Celular de gama alta premium. En el sistema, sirve como un ancla de precios. Al tener un costo mayor, una sola venta genera un margen de ganancia significativo que se refleja inmediatamente en los reportes de ventas diarios (SQL: SELECT SUM(total) FROM ventas WHERE fecha = hoy).')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Samsung S21">
+                    <h3>Samsung Galaxy S21</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-camera"></i> Triple cámara profesional</li>
+                        <li><i class="fa-solid fa-desktop"></i> Dynamic AMOLED 2X</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$450.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Samsung Galaxy S21', 450)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 4: Adaptador D-Link -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('D-Link DWA-131 Wireless', 'fa-wifi', 'Adaptador Nano USB Wi-Fi N300. Clasificado en el sistema como Accesorio/Redes. Sirve para computadoras de escritorio o laptops con tarjetas de red defectuosas. Es un artículo de venta cruzada (cross-selling) perfecto; el cliente viene por un celular y termina llevando esto para su PC.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1544158428-fbfa92eeb1ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="D-Link DWA-131">
+                    <h3>D-Link DWA-131 Wi-Fi</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-wifi"></i> Wireless N300 Nano</li>
+                        <li><i class="fa-brands fa-usb"></i> Conexión USB 2.0</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$15.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('D-Link DWA-131 Wi-Fi', 15)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 5: Mercusys -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Mercusys MW150US', 'fa-signal', 'Adaptador Wi-Fi Mini. Competencia directa del D-Link en el catálogo. En la base de datos, sirve para ofrecer opciones de diferentes rangos de precio. Cuando el sistema detecta que el stock de uno baja de 5 unidades, alerta al administrador para promocionar la marca alternativa.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1558864559-ed673ba3610b?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mercusys MW150US">
+                    <h3>Mercusys MW150US</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-signal"></i> 150Mbps Wireless N</li>
+                        <li><i class="fa-solid fa-minimize"></i> Diseño Ultra Compacto</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$10.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Mercusys MW150US', 10)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 6: Gamepad BSP-D8 -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Gamepad BSP-D8', 'fa-gamepad', 'Controlador Bluetooth para móviles. Etiquetado como Accesorio Gaming. Sirve para mejorar la experiencia de juegos como Roblox, GTA V o emuladores de God of War (PPSSPP) en el celular. Se recomienda vender en combo con equipos potentes como el POCO o Infinix.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gamepad BSP-D8">
+                    <h3>Gamepad BSP-D8</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-brands fa-bluetooth"></i> Bluetooth 5.2 / Hall Effect</li>
+                        <li><i class="fa-solid fa-mobile-screen"></i> Ajustable para Smartphones</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$35.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Gamepad BSP-D8', 35)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 7: Gamepad BSP-D3 -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Gamepad BSP-D3', 'fa-gamepad', 'Versión alternativa de controlador móvil. Sirve como opción más económica para los clientes gamers. En el sistema, su registro ayuda a tener variedad de inventario, atrayendo a clientes que buscan accesorios accesibles para jugar Hollow Knight o Geometry Dash en Android.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1593118247619-e2d6f056869e?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Gamepad BSP-D3">
+                    <h3>Gamepad BSP-D3</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-bolt"></i> Baja latencia</li>
+                        <li><i class="fa-solid fa-compact-disc"></i> Diseño ergonómico</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$22.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Gamepad BSP-D3', 22)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 8: Infinix -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Infinix Note 30', 'fa-bolt', 'Smartphone enfocado en rendimiento y batería. Sirve para clientes que buscan altos puntajes en AnTuTu sin gastar demasiado. En la lógica de CelularSync Pro, estos dispositivos tienen alta rotación, por lo que el trigger (disparador) de SQL alerta rápidamente cuando quedan pocos en bodega.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1678911820864-e4c7606e3995?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Infinix">
+                    <h3>Infinix Note 30</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-microchip"></i> Helio G99 (Alto AnTuTu)</li>
+                        <li><i class="fa-solid fa-bolt"></i> Carga rápida 45W</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$210.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Infinix Note 30', 210)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 9: Motorola -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Motorola Edge 50 Fusion', 'fa-shield-halved', 'Un dispositivo balanceado. Sirve para usuarios que buscan resistencia (protección contra agua) y buena pantalla. En nuestro sistema Python, registrar todas estas especificaciones detalladas permite que, a futuro, se implemente un filtro de búsqueda por características específicas.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1658428805218-3ee7e9749db7?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Motorola Edge">
+                    <h3>Motorola Edge 50 Fusion</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-shield-halved"></i> Protección IP68</li>
+                        <li><i class="fa-solid fa-desktop"></i> Pantalla pOLED 144Hz</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$299.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Motorola Edge 50 Fusion', 299)">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 10: Mikasa (Easter Egg / Regalo) -->
+            <div class="producto-card">
+                <div class="clickable-area" onclick="abrirModal('Balón Mikasa V300W (Especial)', 'fa-volleyball', '¡Un artículo especial fuera de la tecnología! Sirve para demostrar que el sistema CelularSync Pro es tan flexible que permite agregar cualquier tipo de producto al inventario, ya sea un celular o un balón oficial para entrenar como buen defensa en la posición 5. Además, es excelente para regalos de aniversario de 1 y cachito.')">
+                    <img class="prod-img-real" src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Mikasa V300W">
+                    <h3>Balón Mikasa V300W</h3>
+                    <ul class="prod-specs">
+                        <li><i class="fa-solid fa-volleyball"></i> Oficial de Competición</li>
+                        <li><i class="fa-solid fa-star"></i> Agarre aerodinámico</li>
+                    </ul>
+                </div>
+                <div class="prod-precio">$85.00</div>
+                <button class="btn-comprar" onclick="agregarAlCarrito('Balón Mikasa V300W', 85)">Añadir al carrito</button>
+            </div>
+
+        </div>
+
+        <!-- Panel del carrito lateral (Intacto para probar funcionalidades) -->
+        <div id="cart-panel" class="cart-panel oculta">
+            <div class="cart-header">
+                <h3>Simulador de Carrito</h3>
+                <button class="close-cart" onclick="toggleCart()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <p class="cart-info-text">Esta es la memoria temporal de la compra. Aquí el sistema valida los datos antes de inyectarlos a la base SQL.</p>
+            <ul id="cart-items">
+                <!-- Los items se inyectan con JS -->
+            </ul>
+            <div class="cart-total">
+                <strong>Total: </strong> $<span id="total-price">0.00</span>
+            </div>
+            <button class="btn-pagar" onclick="procesarPago()">Simular Transacción</button>
+        </div>
+    </main>
+
+    <!-- VENTANA MODAL GLOBAL (Intacta) -->
+    <div id="modal-global" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="cerrarModal()"><i class="fa-solid fa-circle-xmark"></i></span>
+            <div id="modal-icono" class="modal-icono"></div>
+            <h2 id="modal-titulo">Título</h2>
+            <p id="modal-desc">Descripción detallada...</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-mini">
+            <p><strong>CelularSync Pro (Nexus GX)</strong> - Sistema de Gestión en Python.</p>
+            <p>&copy; 2026 Desarrollado por Jonathan Alexander Esquivel Prado. Proyecto INFRAMEN.</p>
+            <div class="footer-links">
+                <a href="https://github.com/yamishukehiro4-max/CelularSync-Pro" target="_blank"><i class="fa-brands fa-github"></i> Ver Código Fuente</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="Celular.js"></script>
+</body>
+</html>
