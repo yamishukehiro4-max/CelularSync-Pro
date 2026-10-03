@@ -49,7 +49,7 @@ function cambiarPestana(idPestana, elementoLink) {
 let modoUsuario = false;
 
 function toggleModoUsuario() {
-    // 1. Mostrar animación de carga
+    // 1. Mostrar animación de carga con spinners
     const loader = document.getElementById('pantalla-carga');
     const loaderBar = document.querySelector('.loader-progreso');
     const loaderSubtitulo = document.querySelector('.loader-subtitulo');
