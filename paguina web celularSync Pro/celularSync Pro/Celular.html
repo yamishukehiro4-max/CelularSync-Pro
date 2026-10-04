@@ -9,6 +9,7 @@
 </head>
 <body>
 
+    <!-- PANTALLA DE CARGA -->
     <div id="pantalla-carga" class="loader-container">
         <div class="loader-content">
             <div class="spinner-ring"></div>
@@ -25,6 +26,7 @@
 
     <div class="animated-background" id="bg-particles"></div>
 
+    <!-- NAVEGACIÓN PRINCIPAL MEJORADA CON SECCIÓN DE PLANES Y PRECIOS -->
     <nav class="navbar">
         <div class="logo">
             <i class="fa-solid fa-mobile-screen-button"></i> CELULARSYNC PRO
@@ -36,6 +38,7 @@
             <li><a href="#" onclick="cambiarPestana('inicio', this); cerrarMenuMobile();" class="active">Inicio</a></li>
             <li><a href="#" onclick="cambiarPestana('caracteristicas', this); cerrarMenuMobile();">Características</a></li>
             <li><a href="#" onclick="cambiarPestana('sistema', this); cerrarMenuMobile();">El Sistema</a></li>
+            <li><a href="#" onclick="cambiarPestana('planes', this); cerrarMenuMobile();">Planes y Precios</a></li>
             <li><a href="#" onclick="cambiarPestana('panel-admin', this); cerrarMenuMobile();">Panel Admin</a></li>
             <li><a href="#" onclick="cambiarPestana('acerca', this); cerrarMenuMobile();">Acerca del Proyecto</a></li>
         </ul>
@@ -44,6 +47,7 @@
         </button>
     </nav>
 
+    <!-- VISTA PRINCIPAL ADMINISTRADOR -->
     <main id="admin-view">
         
         <section id="inicio" class="seccion-activa fade-in">
@@ -51,9 +55,13 @@
                 <h1 class="glitch-effect">Gestión Inteligente de Inventario y Ventas</h1>
                 <p class="hero-subtitle">Descubre el sistema definitivo desarrollado en Python. Control de stock detallado, facturación instantánea en PDF, estadísticas comerciales en tiempo real y carritos de compra, todo unificado en un entorno seguro, escalable y altamente optimizado para tiendas modernas.</p>
                 
+                <!-- BOTONES DE ACCIÓN MEJORADOS (RESPONDE A PUNTOS 5 Y 6 DEL PDF) -->
                 <div class="hero-botones">
-                    <button class="btn-hero btn-cotizar" onclick="abrirModal('Cotización de Software', 'fa-file-invoice-dollar', 'Ofrecemos diferentes planes para implementar CelularSync Pro en tu negocio. Desde un pago único por la licencia de software local, hasta planes mensuales que incluyen almacenamiento en la nube, soporte técnico 24/7 y capacitaciones para tus empleados. ¡Moderniza tu tienda hoy mismo!')"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizar Software</button>
-                    <button class="btn-hero btn-contactar" onclick="abrirModal('Contacto de Ventas', 'fa-headset', '¿Listo para llevar tu inventario al siguiente nivel? Contáctanos a través de nuestro correo: ventas@celularsyncpro.com o escríbenos a nuestro WhatsApp empresarial: +503 7777-8888. Nuestro equipo de desarrollo (Jonathan y Anderson) estará encantado de atenderte y agendar una demostración en vivo.')"><i class="fa-solid fa-headset"></i> Contactar Ventas</button>
+                    <button class="btn-hero btn-cotizar" onclick="abrirModal('Cotización de Software', 'fa-file-invoice-dollar', 'Ofrecemos diferentes planes para implementar CelularSync Pro en tu negocio:\n\n1. Licencia Local Pro ($150 USD - Pago Único): Incluye instalación local, base de datos SQL y licencias para 1 terminal POS.\n2. Plan Empresarial Cloud ($25 USD/mes): Incluye multi-sucursal, almacenamiento en la nube, respaldos automáticos y soporte 24/7.\n3. Edición Educativa ($0 USD): Acceso libre al código fuente en GitHub para estudiantes e investigadores.\n\n¡Moderniza tu tienda hoy mismo contactando con nuestro equipo de ventas!')"><i class="fa-solid fa-file-invoice-dollar"></i> Cotizar Software</button>
+                    
+                    <button class="btn-hero btn-descargar" onclick="abrirModal('Descargar Ejecutable de Escritorio (.exe)', 'fa-download', '¡Obtén la versión instalable de CelularSync Pro para Windows!\n\nRequisitos del Sistema:\n- Windows 10/11 (64 bits).\n- Python 3.10+ (o ejecutable standalone sin dependencias).\n- Motor de Base de Datos MySQL/SQLite integrado.\n\nPuedes clonar el proyecto o descargar el ejecutable directo en nuestro repositorio oficial de GitHub.')"><i class="fa-solid fa-download"></i> Descargar Demo (.exe)</button>
+
+                    <button class="btn-hero btn-contactar" onclick="abrirModal('Soporte Técnico y Contacto de Ventas', 'fa-headset', '¿Necesitas asesoría técnica o agendar una demostración en vivo?\n\n Correo Oficial: ventas@celularsyncpro.com / soporte@celularsyncpro.com\n WhatsApp Empresarial: +503 7777-8888\n Desarrolladores: Jonathan Alexander Esquivel Prado y Anderson Caleb Ponce Rosales (INFRAMEN).\n\nEstamos a tu disposición para ayudarte en la instalación y configuración inicial.')"><i class="fa-solid fa-headset"></i> Soporte y Ventas</button>
                 </div>
 
                 <div class="alerta-clarificacion">
@@ -124,7 +132,7 @@
                     </div>
                 </div>
 
-                <div class="card-interactiva" onclick="abrirModal('Autenticación, Roles y Seguridad', 'fa-shield-halved', 'El sistema cuenta con un módulo de inicio de sesión y registro altamente protegido. Diferencia automáticamente entre usuarios normales (cajeros que solo pueden vender) y el Administrador Supremo (que puede ver ganancias y borrar registros). Incluye validaciones estrictas en la interfaz, como el requerimiento de números telefónicos de exactamente 6 dígitos para la creación de cuentas, garantizando la limpieza e integridad de la base de datos contra entradas erróneas.')">
+                <div class="card-interactiva" onclick="abrirModal('Autenticación, Roles y Seguridad', 'fa-shield-halved', 'El sistema cuenta con un módulo de inicio de sesión y registro altamente protegido. Diferencia automáticamente entre usuarios normales (cajeros que solo pueden vender) y el Administrador Supremo (que puede ver ganancias y borrar registros). Incluye validaciones strictly en la interfaz, como el requerimiento de números telefónicos de exactamente 6 dígitos para la creación de cuentas, garantizando la limpieza e integridad de la base de datos contra entradas erróneas.')">
                     <div class="card-img-placeholder">
                         <i class="fa-solid fa-shield-halved"></i>
                         <span>Clic para expandir info completa</span>
@@ -171,6 +179,54 @@
                     <p>La arquitectura interna de CelularSync Pro se estructuró tomando inspiración del patrón de diseño Modelo-Vista-Controlador (MVC). Esto significa que separamos de manera estricta la parte visual (las ventanas de Tkinter que ve el usuario) de la lógica de negocio profunda (los algoritmos de cálculo) y de las transacciones de la base de datos. Esta modularidad avanzada nos permitió trabajar en el entorno de PyCharm de forma mucho más limpia, ordenada y libre de redundancias.</p>
                     <p>Para ilustrarlo: cuando se realiza una venta en el punto de cobro, el <strong>Controlador</strong> recibe la orden de compra, valida algorítmicamente que haya stock suficiente en bodega, le ordena a la <strong>Base de Datos (Modelo)</strong> que reste esa cantidad exacta mediante un comando UPDATE, registra el ingreso financiero, y finalmente, refresca de manera asíncrona la tabla de inventario en la <strong>Vista (Tkinter)</strong> para que el cajero vea el stock actualizado al instante.</p>
                 </div>
+            </div>
+        </section>
+
+        <!-- NUEVA SECCIÓN: PLANES Y PRECIOS DEL SOFTWARE (SOLUCIONA EL PUNTO 5 DEL PDF) -->
+        <section id="planes" class="seccion-oculta">
+            <h2 class="section-title">Planes de Licenciamiento y Precios</h2>
+            <p class="section-desc">Modelos de adquisición claros y transparentes adaptados a cada escala de negocio.</p>
+            <div class="planes-grid">
+                
+                <div class="plan-card">
+                    <div class="plan-badge">Educativo / Demo</div>
+                    <h3>Open Source</h3>
+                    <div class="plan-precio">$0 <span>/ gratis</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Acceso completo al código fuente en GitHub</li>
+                        <li><i class="fa-solid fa-check"></i> Ejecución local en Python (Tkinter + SQL)</li>
+                        <li><i class="fa-solid fa-check"></i> Módulo de facturación y gráficos básicos</li>
+                        <li><i class="fa-solid fa-check"></i> Ideal para auditoría académica y aprendizaje</li>
+                    </ul>
+                    <button class="btn-plan" onclick="window.open('https://github.com/yamishukehiro4-max/CelularSync-Pro', '_blank')">Ver Repositorio</button>
+                </div>
+
+                <div class="plan-card plan-destacado">
+                    <div class="plan-badge destacado-badge">Más Recomendado</div>
+                    <h3>Licencia Local Pro</h3>
+                    <div class="plan-precio">$150 <span>/ pago único</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Licencia de uso vitalicio para 1 caja registradora</li>
+                        <li><i class="fa-solid fa-check"></i> Base de datos SQL sin límite de productos</li>
+                        <li><i class="fa-solid fa-check"></i> Exportación ilimitada de facturas PDF</li>
+                        <li><i class="fa-solid fa-check"></i> Instalación guiada y soporte inicial</li>
+                    </ul>
+                    <button class="btn-plan btn-plan-destacado" onclick="abrirModal('Adquirir Licencia Local Pro', 'fa-cart-shopping', 'Para solicitar la Licencia Local Pro por $150 USD (pago único sin mensualidades), comunícate directamente a nuestro WhatsApp Empresarial +503 7777-8888 o escríbenos a ventas@celularsyncpro.com.')">Adquirir Licencia</button>
+                </div>
+
+                <div class="plan-card">
+                    <div class="plan-badge">Empresarial</div>
+                    <h3>Suscripción Cloud</h3>
+                    <div class="plan-precio">$25 <span>/ mes</span></div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Sincronización multi-sucursal en la nube</li>
+                        <li><i class="fa-solid fa-check"></i> Respaldos de seguridad diarios automáticos</li>
+                        <li><i class="fa-solid fa-check"></i> Soporte técnico prioritario 24/7</li>
+                        <li><i class="fa-solid fa-check"></i> Actualizaciones de funciones continuas</li>
+                    </ul>
+                    <button class="btn-plan" onclick="abrirModal('Plan Cloud Empresarial', 'fa-cloud', 'El Plan Cloud está diseñado para negocios en expansión con múltiples cajeros. Incluye soporte continuo. Solicita tu prueba de 14 días escribiendo a soporte@celularsyncpro.com.')">Solicitar Prueba</button>
+                </div>
+
             </div>
         </section>
 
@@ -222,6 +278,7 @@
         </section>
     </main>
 
+    <!-- VISTA USUARIO (FRONTEND DEMO POS SIMULADO) -->
     <main id="user-view" class="seccion-oculta">
         
         <div class="user-explanation-hero fade-in">
@@ -252,20 +309,31 @@
 
         <hr class="divisor-elegante">
 
+        <!-- CABECERA DEL CATÁLOGO DE DEMOSTRACIÓN -->
         <div class="store-header fade-in">
             <div class="store-title-box">
                 <h2><i class="fa-solid fa-mobile-retro"></i> Catálogo de Demostración Técnica</h2>
-                <p>Haz clic sobre la imagen o el nombre de cualquier dispositivo para conocer sus <strong>características ampliadas para el cliente</strong> y su lógica transaccional. Usa los botones para probar el carrito.</p>
+                <p>Usa los filtros de categoría para explorar cómo el sistema organiza teléfonos, accesorios o artículos de prueba de estrés. Haz clic en las tarjetas para ver la explicación técnica de Python.</p>
             </div>
             <div class="cart-icon" onclick="toggleCart()">
                 <i class="fa-solid fa-cart-shopping"></i>
                 <span id="cart-count">0</span>
             </div>
         </div>
-        
+
+        <!-- FILTROS POR CATEGORÍA (SOLUCIONA LA OBSERVACIÓN DEL BALÓN MIKASA EN EL PDF) -->
+        <div class="filtros-categoria fade-in">
+            <button class="btn-filtro active" onclick="filtrarProductos('todos', this)"><i class="fa-solid fa-border-all"></i> Todos los Productos</button>
+            <button class="btn-filtro" onclick="filtrarProductos('smartphones', this)"><i class="fa-solid fa-mobile-screen"></i> Smartphones</button>
+            <button class="btn-filtro" onclick="filtrarProductos('accesorios', this)"><i class="fa-solid fa-gamepad"></i> Accesorios & Gaming</button>
+            <button class="btn-filtro" onclick="filtrarProductos('estres', this)"><i class="fa-solid fa-vial"></i> Pruebas de Estrés Multi-Rubro</button>
+        </div>
+
+        <!-- GRID DE PRODUCTOS CON ATRIBUTOS DE CATEGORÍA Y ETIQUETAS -->
         <div class="productos-grid fade-in">
             
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="smartphones">
+                <span class="badge-cat"><i class="fa-solid fa-mobile-screen"></i> Smartphone</span>
                 <div class="clickable-area" onclick="abrirModal('POCO X6 Pro - Bestia Gaming', 'fa-mobile', '📱 EXPLICACIÓN PARA EL CLIENTE: Este es el dispositivo definitivo para los amantes de los videojuegos. Equipado con el poderoso procesador MediaTek Dimensity 8300-Ultra, te garantiza jugar sin trabas a más de 60 FPS. Además, cuenta con 1 año de garantía extendida y una pantalla hiperfluida.\n\n⚙ LÓGICA DE SISTEMA: En el sistema CelularSync Pro, este producto está categorizado estrictamente bajo Smartphones de Gama Media-Alta. Sirve estratégicamente para atraer a un público joven y gamers entusiastas. Debido a su alto margen de rotación y demanda, lo convierte en un producto clave que infla positivamente los gráficos de Matplotlib en el panel del Administrador.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/0oCLO_Lvj7XWZma6kZAMMpYyPeoyTQdF2VKVo3ek0zg/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/dHJ1c3RlZHJldmll/d3MuY29tL3dwLWNv/bnRlbnQvdXBsb2Fk/cy9zaXRlcy83LzIw/MjQvMDEvUG9jby1Y/Ni1Qcm8tNi1zY2Fs/ZWQtODIweDQ2MS5q/cGc" alt="POCO X6 Pro">
                     <h3>POCO X6 Pro</h3>
@@ -278,7 +346,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('POCO X6 Pro', 320)">Añadir al carrito</button>
             </div>
             
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="smartphones">
+                <span class="badge-cat"><i class="fa-solid fa-mobile-screen"></i> Smartphone</span>
                 <div class="clickable-area" onclick="abrirModal('LOGIC L68M PLUS - Entrada', 'fa-mobile-screen', '📱 EXPLICACIÓN PARA EL CLIENTE: Un smartphone de entrada excepcional. Ideal para quienes necesitan estar conectados por WhatsApp, redes sociales y llamadas sin gastar demasiado. Tiene una batería de larga duración, pantalla brillante y viene con audífonos y cargador incluidos de fábrica. (ACLARACIÓN: Es un smartphone, no un smartwatch).\n\n⚙️ LÓGICA DE SISTEMA: En la estructura de la base de datos, este terminal se etiqueta bajo la categoría de smartphones de gama de entrada. Sirve como una opción accesible. Es estratégicamente vital mantener estos modelos siempre en stock para asegurar que la tienda cubra todos los segmentos del mercado y no pierda ventas de clientes que buscan soluciones básicas.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/fnd4waWa43XXE1QT-Mq8t1L1KPPKFooZfBJwJi0d7QE/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bG9naWNtb2JpbGl0/eS5jb20vd3AtY29u/dGVudC91cGxvYWRz/LzIwMjIvMDIvaW1n/X2w2OF9wYWNrYWdp/bmdfbG9naWNtb2Jp/bGl0eS5qcGc" alt="LOGIC L68M PLUS">
                     <h3>LOGIC L68M PLUS</h3>
@@ -291,7 +360,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('LOGIC L68M PLUS', 110)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="smartphones">
+                <span class="badge-cat"><i class="fa-solid fa-mobile-screen"></i> Smartphone</span>
                 <div class="clickable-area" onclick="abrirModal('Samsung Galaxy S21 - Premium', 'fa-camera', '📱 EXPLICACIÓN PARA EL CLIENTE: Siente el lujo en tus manos. Este equipo cuenta con una cámara profesional capaz de grabar en 8K, diseño en cristal y aluminio, y resistencia al agua. Si eres creador de contenido o simplemente quieres las mejores fotos para tus redes, esta es tu mejor opción, con soporte de actualizaciones de Samsung garantizado.\n\n⚙️ LÓGICA DE SISTEMA: En la lógica de ventas del sistema, este tipo de teléfonos sirve como un ancla de precios elevados. Al tener un costo y margen de ganancia mucho mayor que el resto, registrar una sola venta de este equipo genera un impacto económico significativo que se refleja inmediatamente (ejecutando en fondo la consulta SQL: SELECT SUM(total) FROM ventas).')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/8fAJrkWyfOAdqFbtYISo813DWRPIRmsUcTaqfDtkJT4/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL2lt/YWdlcy9nL0hiQUFB/ZVN3fkNacXA1SWov/cy1sNDAwLndlYnA" alt="Samsung Galaxy S21">
                     <h3>Samsung Galaxy S21</h3>
@@ -304,8 +374,9 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('Samsung Galaxy S21', 450)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
-                <div class="clickable-area" onclick="abrirModal('D-Link DWA-131 Wireless N300', 'fa-wifi', '🔌 EXPLICACIÓN PARA EL CLIENTE: ¿Tu laptop se quedó sin WiFi o tu PC de escritorio necesita internet inalámbrico? Este pequeño adaptador USB es la solución mágica. Solo conéctalo (Plug & Play) y tendrás una señal de alta velocidad y estabilidad en segundos. Es tan pequeño que puedes dejarlo conectado sin que estorbe.\n\n⚙️ LÓGICA DE SISTEMA: Clasificado en el sistema bajo Accesorios/Redes. Sirve principalmente para dotar de conectividad a computadoras. Comercialmente es un artículo brillante para venta cruzada (cross-selling); el cajero puede ofrecerle este producto complementario para aumentar el ticket promedio de compra.')">
+            <div class="producto-card" data-categoria="accesorios">
+                <span class="badge-cat"><i class="fa-solid fa-plug"></i> Accesorio</span>
+                <div class="clickable-area" onclick="abrirModal('D-Link DWA-131 Wireless N300', 'fa-wifi', '🔌 EXPLICACIÓN PARA EL CLIENTE: ¿Tu laptop se quedó sin WiFi o tu PC de escritorio necesita internet inalámbrico? Este pequeño adaptador USB es la solución mágica. Solo conéctalo (Plug & Play) y tendrás una señal de alta velocidad y estabilidad en segundos. Es tan pequeño que puedes dejarlo conectado sin que estorbe.\n\n⚙️ LÓGICA DE SISTEMA: Clasificado en el sistema bajo Accesorios/Redes. Sirve principalement para dotar de conectividad a computadoras. Comercialmente es un artículo brillante para venta cruzada (cross-selling); el cajero puede ofrecerle este producto complementario para aumentar el ticket promedio de compra.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/IgLFELzPJSdRLJbbNVBgTHAHqZAWpQtBAJXbtGT12hw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/aXRjYXJlb25saW5l/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNC8wNC9ELUxp/bmstV2lyZWxlc3Mt/VVNCLUFkYXB0ZXIt/TjMwMC1EV0EtMTMx/LTEuanBn" alt="D-Link DWA-131 Wi-Fi">
                     <h3>D-Link DWA-131 Wi-Fi</h3>
                     <ul class="prod-specs">
@@ -317,7 +388,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('D-Link DWA-131 Wi-Fi', 15)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="accesorios">
+                <span class="badge-cat"><i class="fa-solid fa-plug"></i> Accesorio</span>
                 <div class="clickable-area" onclick="abrirModal('Mercusys MW150US', 'fa-signal', '🔌 EXPLICACIÓN PARA EL CLIENTE: La opción más económica y confiable para darle Wi-Fi a tu computadora. Este adaptador Mercusys ofrece 150Mbps de velocidad, perfecto para navegación diaria, tareas escolares y ver videos en YouTube sin interrupciones. ¡Una inversión pequeña que soluciona grandes problemas!\n\n⚙️ LÓGICA DE SISTEMA: Es la competencia directa del modelo D-Link dentro de nuestro propio catálogo. El sistema está programado de tal forma que, cuando detecta que el stock del D-Link baja de 5 unidades, alerta visualmente al administrador para que instruya a los vendedores a promocionar esta marca alternativa, manteniendo el flujo de ventas constante.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/MA2VYK2vr1itsBjY7OVzvn0N7eZ4Fx6OjxdG3aq22aw/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bWluay5jb20uYXIv/cWxvdWQvcnlyL2Zv/dG9zLzIxMjE0LTAu/anBn" alt="Mercusys MW150US">
                     <h3>Mercusys MW150US</h3>
@@ -330,7 +402,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('Mercusys MW150US', 10)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="accesorios">
+                <span class="badge-cat"><i class="fa-solid fa-gamepad"></i> Accesorio Gaming</span>
                 <div class="clickable-area" onclick="abrirModal('Gamepad Pro BSP-D8', 'fa-gamepad', '🎮 EXPLICACIÓN PARA EL CLIENTE: Transforma tu teléfono en una consola profesional. Este gamepad cuenta con tecnología Hall Effect (no sufre de drift o fallos en las palancas con el tiempo). Es ideal para largas horas jugando Blox Fruits en Roblox o emulando God of War. Se ajusta perfectamente al tamaño de tu móvil y tiene botones súper precisos.\n\n⚙️ LÓGICA DE SISTEMA: Etiquetado minuciosamente en el sistema como Accesorio Gaming Premium. El sistema sugiere a los cajeros vender este gamepad en combo automático cuando el cliente adquiere equipos potentes como el POCO X6 Pro o el Infinix, aumentando los ingresos generados en una sola factura.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/QAoYiCojdAdPmE9Fg0ToWoB2FCGRcAlup_hxYDBJ8YM/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zLmFs/aWNkbi5jb20vQHNj/MDQva2YvSDJiZjY4/NDEwNmE1YjQ5Mzk5/YjJlNDc3OTRiMWM4/NmIzNS5wbmdfNjQw/eDY0MC5wbmc" alt="Gamepad BSP-D8">
                     <h3>Gamepad BSP-D8</h3>
@@ -343,7 +416,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('Gamepad BSP-D8', 35)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="accesorios">
+                <span class="badge-cat"><i class="fa-solid fa-gamepad"></i> Accesorio Gaming</span>
                 <div class="clickable-area" onclick="abrirModal('Gamepad Lite BSP-D3', 'fa-gamepad', '🎮 EXPLICACIÓN PARA EL CLIENTE: La forma más inteligente y económica de jugar en tu celular. Olvídate de tapar la pantalla con tus dedos; con el BSP-D3 disfrutarás juegos como Hollow Knight, Cuphead o Geometry Dash con una comodidad absoluta. Es muy ligero y fácil de llevar en tu mochila a todos lados.\n\n⚙️ LÓGICA DE SISTEMA: Versión alternativa y más ligera. Sirve comercialmente como la opción económica perfecta para aquellos clientes gamers que tienen un presupuesto medido. En el sistema CelularSync Pro, registrar este tipo de variantes de menor costo ayuda a diversificar el inventario y no dejar ir ninguna oportunidad de venta.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/2LH1EAIsOTVfXQ0bFAf91LXe8Iu18WAwq8Fs3bfJh7w/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9zLmFs/aWNkbi5jb20vQHNj/MDQva2YvSDViMWZk/YmFkMzVjZDQxZGY4/NjVhNDZlMzdlZmNk/NDExaC5qcGdfNjQw/eDY0MC5qcGc" alt="Gamepad BSP-D3">
                     <h3>Gamepad BSP-D3</h3>
@@ -356,7 +430,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('Gamepad BSP-D3', 22)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="smartphones">
+                <span class="badge-cat"><i class="fa-solid fa-mobile-screen"></i> Smartphone</span>
                 <div class="clickable-area" onclick="abrirModal('Infinix Note 30', 'fa-bolt', '📱 EXPLICACIÓN PARA EL CLIENTE: Potencia pura sin vaciar tu cartera. El Infinix Note 30 te ofrece una carga súper rápida de 45W (cargas en minutos, no en horas) y un procesador pensado para que tus aplicaciones vuelen. Su diseño trasero es moderno y elegante. Ideal para jóvenes estudiantes y trabajadores que necesitan batería para todo el día.\n\n⚙️ LÓGICA DE SISTEMA: En la lógica transaccional de CelularSync Pro, los dispositivos Infinix suelen tener una altísima tasa de rotación de inventario, por lo que el disparador (trigger) de advertencias en SQL está calibrado para alertar inmediatamente al gerente cuando quedan pocas unidades en la bodega principal.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/jbTgSYe8_jX8iki8GCeJhFjkn_O4owwXN0sRGgZWdHs/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9mZG4y/LmdzbWFyZW5hLmNv/bS92di9waWNzL2lu/ZmluaXgvaW5maW5p/eC14NjcxMC1ub3Rl/LTMwLXZpcC0zLmpw/Zw" alt="Infinix Note 30">
                     <h3>Infinix Note 30</h3>
@@ -369,7 +444,8 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('Infinix Note 30', 210)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
+            <div class="producto-card" data-categoria="smartphones">
+                <span class="badge-cat"><i class="fa-solid fa-mobile-screen"></i> Smartphone</span>
                 <div class="clickable-area" onclick="abrirModal('Motorola Edge 50 Fusion', 'fa-shield-halved', '📱 EXPLICACIÓN PARA EL CLIENTE: Para los que buscan estética y resistencia. Este Motorola es sumergible y resistente al polvo (IP68), por lo que no tendrás que preocuparte si te sorprende la lluvia. Además, sus bordes curvos y su pantalla a 144Hz te darán la experiencia de uso más suave y rápida que hayas probado.\n\n⚙ LÓGICA DE SISTEMA: En nuestro ecosistema Python, exigir el registro de todas estas especificaciones técnicas detalladas al momento de ingresar el producto permite que, en el futuro, el sistema pueda filtrar automáticamente recomendaciones basándose en los gustos específicos de cada cliente.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/8ypLkI21548RJdTh5WurY5t-W6MklJlFBpU43onYgBc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/OTEtaW1nLmNvbS9w/aWN0dXJlcy8xNTMw/NjctdjE2LW1vdG9y/b2xhLWVkZ2UtNTAt/ZnVzaW9uLW1vYmls/ZS1waG9uZS1ocmVz/LTEuanBnP3Ry" alt="Motorola Edge 50 Fusion">
                     <h3>Motorola Edge 50 Fusion</h3>
@@ -382,13 +458,15 @@
                 <button class="btn-comprar" onclick="agregarAlCarrito('Motorola Edge 50 Fusion', 299)">Añadir al carrito</button>
             </div>
 
-            <div class="producto-card">
-                <div class="clickable-area" onclick="abrirModal('Balón Profesional Mikasa V300W', 'fa-volleyball', '🏐 EXPLICACIÓN PARA EL CLIENTE: ¡El mejor balón de voleibol que podrás tocar! Utilizado en competencias oficiales, su material ofrece un agarre espectacular perfecto para practicar tu defensa en posición 5. Y si buscas un regalo increíble para celebrar 1 año y cachito con esa persona especial deportista, esto no tiene fallo.\n\n⚙️ LÓGICA DE SISTEMA: ¡Un artículo especial! Este registro sirve como prueba definitiva de estrés para demostrar que el sistema CelularSync Pro es tan flexible y robusto en su base de datos que permite categorizar y vender absolutamente cualquier tipo de producto físico, no solo tecnología.')">
+            <!-- PRODUCTO CON AVISO TÉCNICO DE PRUEBA DE ESTRÉS DE BASE DE DATOS -->
+            <div class="producto-card" data-categoria="estres">
+                <span class="badge-cat badge-stress"><i class="fa-solid fa-vial"></i> Prueba Multi-Rubro</span>
+                <div class="clickable-area" onclick="abrirModal('Balón Profesional Mikasa V300W', 'fa-volleyball', '🏐 EXPLICACIÓN TÉCNICA Y DE PRUEBA DE BASE DE DATOS:\n\n1. ¿Por qué está este artículo aquí? Incluimos este producto deliberadamente en la demostración para realizar pruebas de estrés en la base de datos SQL, demostrando que CelularSync Pro es un software sumamente flexible capaz de administrar y catalogar cualquier tipo de mercancía física (artículos deportivos, abarrotes, tecnología) sin restringirse únicamente a teléfonos móviles.\n\n2. Para el Cliente: Calidad Oficial de Competición V300W, perfecto para entrenamiento y torneos de voleibol en posición 5 de defensa.\n\n⚙️ LÓGICA DE SISTEMA: Comprueba la versatilidad de la estructura relacional de la base de datos al permitir categorías dinámicas fuera del rubro tecnológico.')">
                     <img class="prod-img-real" src="https://imgs.search.brave.com/gd5fT4VV17A7I19CtDjfzO-xjPionVzdMCanpddsYig/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly93d3cu/bXVuZG9saW1waWNv/LmNvbS93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNS8wOS9CQUxP/Ti1WT0xFSUJPTC1N/SUtBU0EtVjMwMFcu/anBn" alt="Balón Mikasa V300W">
                     <h3>Balón Mikasa V300W</h3>
                     <ul class="prod-specs">
                         <li><i class="fa-solid fa-volleyball"></i> Calidad Oficial de Competición</li>
-                        <li><i class="fa-solid fa-star"></i> Agarre y vuelo aerodinámico perfecto</li>
+                        <li><i class="fa-solid fa-vial"></i> Demostración Multi-Rubro SQL</li>
                     </ul>
                 </div>
                 <div class="prod-precio">$85.00</div>

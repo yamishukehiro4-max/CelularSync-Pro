@@ -1,6 +1,5 @@
 // --- Lógica de Súper Animación de Carga ---
 window.addEventListener('load', () => {
-    // Le damos 2.5 segundos para que el usuario admire la animación de carga premium
     setTimeout(() => {
         const loader = document.getElementById('pantalla-carga');
         loader.style.opacity = '0';
@@ -56,10 +55,10 @@ function toggleModoUsuario() {
 
     // Reiniciar animación de la barra CSS
     loaderBar.style.animation = 'none';
-    loaderBar.offsetHeight; /* trigger reflow para que vuelva a iniciar */
+    loaderBar.offsetHeight; /* trigger reflow para reiniciar animación */
     loaderBar.style.animation = null;
 
-    // Cambiar el texto de la carga dependiendo hacia dónde vamos
+    // Cambiar el texto de la carga según el destino
     if (!modoUsuario) {
         loaderSubtitulo.innerText = "Cargando interfaz de cliente (Frontend)...";
     } else {
@@ -70,7 +69,7 @@ function toggleModoUsuario() {
     loader.style.visibility = 'visible';
     loader.style.opacity = '1';
 
-    // 2. Retrasar el cambio de vista visual para que se disfrute la animación
+    // 2. Transición visual fluida
     setTimeout(() => {
         modoUsuario = !modoUsuario;
         const body = document.body;
@@ -81,49 +80,61 @@ function toggleModoUsuario() {
         const btnMenuToggle = document.querySelector('.menu-hamburguesa');
 
         if (modoUsuario) {
-            // Cambiar a Vista Usuario con colores claros
             body.classList.add('modo-usuario');
             btnTexto.innerText = "Volver a Vista Admin";
             adminView.classList.add('seccion-oculta');
             userView.classList.remove('seccion-oculta');
             navLinks.style.display = 'none'; 
-            btnMenuToggle.style.display = 'none'; // Ocultar hamburguesa en vista usuario
+            btnMenuToggle.style.display = 'none';
         } else {
-            // Regresar a Vista Administrador Premium
             body.classList.remove('modo-usuario');
             btnTexto.innerText = "Vista Usuario / Cliente";
             adminView.classList.remove('seccion-oculta');
             userView.classList.add('seccion-oculta');
             
-            // Restaurar menú dependiendo del tamaño de pantalla
             navLinks.style.display = window.innerWidth > 900 ? 'flex' : 'none'; 
             btnMenuToggle.style.display = window.innerWidth <= 900 ? 'block' : 'none';
             
             cambiarPestana('inicio', document.querySelector('.nav-links a'));
         }
 
-        // 3. Ocultar la animación suavemente después de hacer el cambio
         setTimeout(() => {
             loader.style.opacity = '0';
             setTimeout(() => { loader.style.visibility = 'hidden'; }, 800);
-        }, 800); // 800ms de gracia visual
+        }, 800);
 
-    }, 1500); // 1.5 segundos simulando la carga del sistema
+    }, 1500);
 }
 
-// --- Lógica Mejorada de la Ventana Modal ---
+// --- FILTRADO DINÁMICO DE PRODUCTOS POR CATEGORÍA ---
+function filtrarProductos(categoria, elemento) {
+    const botones = document.querySelectorAll('.btn-filtro');
+    botones.forEach(btn => btn.classList.remove('active'));
+    if (elemento) elemento.classList.add('active');
+
+    const productos = document.querySelectorAll('.producto-card');
+    productos.forEach(prod => {
+        const catProducto = prod.getAttribute('data-categoria');
+        if (categoria === 'todos' || catProducto === categoria) {
+            prod.style.display = 'flex';
+            prod.classList.add('fade-in');
+        } else {
+            prod.style.display = 'none';
+        }
+    });
+}
+
+// --- Lógica de la Ventana Modal Global ---
 function abrirModal(titulo, claseIcono, descripcion) {
     const modal = document.getElementById('modal-global');
     const modalTitulo = document.getElementById('modal-titulo');
     const modalDesc = document.getElementById('modal-desc');
     const modalIcono = document.getElementById('modal-icono');
 
-    // Inyectar la información dinámica (ahora soporta saltos de línea con \n gracias al CSS white-space: pre-line)
     modalTitulo.innerText = titulo;
     modalDesc.innerText = descripcion;
     modalIcono.innerHTML = `<i class="fa-solid ${claseIcono}"></i>`;
     
-    // Activar animación y visibilidad
     modal.classList.add('active');
 }
 
@@ -132,7 +143,7 @@ function cerrarModal() {
     modal.classList.remove('active');
 }
 
-// Cerrar el modal haciendo clic en cualquier parte oscura (Optimizado para móviles)
+// Cerrar modal al hacer clic en el fondo oscuro
 window.addEventListener('click', function(event) {
     const modal = document.getElementById('modal-global');
     if (event.target === modal) {
@@ -140,7 +151,6 @@ window.addEventListener('click', function(event) {
     }
 });
 
-// Soporte táctil extra para cerrar modal fuera de la caja en celulares
 window.addEventListener('touchstart', function(event) {
     const modal = document.getElementById('modal-global');
     if (event.target === modal) {
@@ -148,7 +158,7 @@ window.addEventListener('touchstart', function(event) {
     }
 });
 
-// --- Lógica del Carrito de Compras (Demo Interactiva y Funcional) ---
+// --- Lógica del Carrito de Compras ---
 let carrito = [];
 let totalCarrito = 0;
 
@@ -158,20 +168,15 @@ function toggleCart() {
 }
 
 function agregarAlCarrito(nombreProducto, precioProducto) {
-    // Añadir el objeto al arreglo del carrito
     carrito.push({ nombre: nombreProducto, precio: precioProducto });
     
-    // Actualizar Contador visual
     const cartCount = document.getElementById('cart-count');
     cartCount.innerText = carrito.length;
 
-    // Actualizar Total matemático
     totalCarrito += precioProducto;
     
-    // Renderizar lista
     actualizarVistaCarrito();
     
-    // Abrir el panel lateral automáticamente
     const cartPanel = document.getElementById('cart-panel');
     if (!cartPanel.classList.contains('active')) {
         cartPanel.classList.add('active');
@@ -179,17 +184,12 @@ function agregarAlCarrito(nombreProducto, precioProducto) {
 }
 
 function eliminarDelCarrito(index) {
-    // Restar el precio
     totalCarrito -= carrito[index].precio;
-    
-    // Eliminar del arreglo
     carrito.splice(index, 1);
     
-    // Actualizar Contador visual
     const cartCount = document.getElementById('cart-count');
     cartCount.innerText = carrito.length;
     
-    // Renderizar la lista nuevamente
     actualizarVistaCarrito();
 }
 
@@ -197,10 +197,8 @@ function actualizarVistaCarrito() {
     const ulCarrito = document.getElementById('cart-items');
     const spanTotal = document.getElementById('total-price');
     
-    // Limpiar lista
     ulCarrito.innerHTML = '';
     
-    // Generar HTML por producto
     carrito.forEach((item, index) => {
         const li = document.createElement('li');
         li.innerHTML = `
@@ -222,7 +220,7 @@ function procesarPago() {
         return;
     }
     
-    alert(`[SIMULACIÓN EXITOSA DEL SISTEMA PYTHON] \n\n¡Compra procesada con éxito por un total de $${totalCarrito.toFixed(2)}!\n\nEn el entorno de producción, esto acaba de ejecutar: \n1. Sentencia UPDATE en SQL para descontar el stock.\n2. Inserción de las ganancias en el reporte del día.\n3. Generación automática del comprobante de garantía en PDF.`);
+    alert(`[SIMULACIÓN EXITOSA DEL SISTEMA PYTHON]\n\n¡Compra procesada con éxito por un total de $${totalCarrito.toFixed(2)}!\n\nEn el entorno de producción, esto acaba de ejecutar:\n1. Sentencia UPDATE en SQL para descontar el stock.\n2. Inserción de las ganancias en el reporte del día.\n3. Generación automática del comprobante de garantía en PDF.`);
     
     carrito = [];
     totalCarrito = 0;
