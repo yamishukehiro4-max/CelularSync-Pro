@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 180" role="img" aria-labelledby="title desc">
+<title id="title">Nexus GX</title><desc id="desc">Logo circular futurista con una N y anillo orbital</desc>
+<defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#1bd0ff"/><stop offset="1" stop-color="#7a74ff"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="7" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<g transform="translate(70 90)"><circle r="52" fill="#07111f" stroke="url(#g)" stroke-width="8"/><ellipse rx="76" ry="28" fill="none" stroke="#23ccff" stroke-width="5" transform="rotate(-20)" opacity=".9"/><path d="M-24 28V-27h15l33 37v-37h15v55H24L-9-10v38z" fill="#fff" filter="url(#glow)"/></g>
+<text x="150" y="102" fill="#fff" font-family="Space Grotesk,Arial,sans-serif" font-size="68" font-weight="800">Nexus <tspan fill="url(#g)">GX</tspan></text>
+<text x="154" y="136" fill="#97a9c2" font-family="Inter,Arial,sans-serif" font-size="18" letter-spacing="3">TECNOLOGÍA SIN LÍMITES</text>
+</svg>
