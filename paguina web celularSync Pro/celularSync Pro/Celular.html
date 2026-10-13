@@ -245,7 +245,6 @@ body.light-mode #page-home{background-image:linear-gradient(120deg,rgba(248,250,
 .faq-question{padding:20px;cursor:pointer;font-weight:700;display:flex;justify-content:space-between;align-items:center;}
 .faq-answer{padding:0 20px;max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;color:var(--text-muted);}
 .faq-item.active .faq-answer{padding:20px;max-height:500px;}
-.faq-img-explain{width:100%;max-height:220px;object-fit:cover;border-radius:12px;margin-top:15px;}
 .about-hero{text-align:center;max-width:800px;margin:0 auto 50px auto;}
 .about-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;}
 .about-card{background:var(--surface-color);padding:30px;border-radius:20px;border:1px solid var(--card-border);text-align:center;}
@@ -254,9 +253,6 @@ body.light-mode #page-home{background-image:linear-gradient(120deg,rgba(248,250,
 .sucursales-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px;}
 .sucursal-card{background:var(--surface-color);padding:25px;border-radius:15px;border-top:4px solid var(--secondary-color);cursor:pointer;transition:var(--transition);}
 .sucursal-card:hover{transform:translateY(-5px);border-color:var(--primary-color);}
-.profile-collage-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:20px;}
-.collage-card{background:var(--surface-color);border-radius:15px;padding:15px;border:1px solid var(--card-border);text-align:center;}
-.collage-card img{width:100%;height:140px;object-fit:contain;background:#fff;border-radius:10px;padding:5px;}
 .cart-item{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid var(--card-border);}
 .cart-item img{width:50px;height:50px;object-fit:contain;background:#fff;border-radius:8px;}
 .payment-methods{display:flex;flex-direction:column;gap:12px;margin-top:20px;}
@@ -353,28 +349,6 @@ footer p{color:var(--text-muted);font-size:.9rem;margin-top:8px;}
   .purchase-item-row > :last-child{grid-column:2;justify-self:start;}
 }
 
-/* ==================== PORTADA ==================== */
-.portada-container{display:flex;align-items:center;justify-content:center;min-height:calc(100vh - 85px);padding:40px 5%;}
-.portada-card{background:linear-gradient(145deg,var(--surface-color),rgba(30,41,59,.85));border:2px solid var(--primary-color);border-radius:30px;padding:50px 40px;max-width:900px;width:100%;text-align:center;box-shadow:0 25px 70px rgba(56,189,248,.25);}
-.portada-logo{width:130px;height:130px;margin-bottom:20px;filter:drop-shadow(0 0 15px var(--primary-color));border-radius:20px;object-fit:contain;background:#fff;padding:8px;}
-.portada-card h1{font-size:1.4rem;margin-bottom:10px;color:var(--primary-color);letter-spacing:1px;}
-.portada-card h2{font-size:1.1rem;margin-bottom:8px;font-weight:600;}
-.portada-card h3{font-size:1rem;color:var(--text-muted);margin-bottom:25px;}
-.portada-divider{height:2px;background:linear-gradient(90deg,transparent,var(--primary-color),transparent);margin:25px 0;}
-.portada-project-name{font-size:1.7rem;background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));-webkit-background-clip:text;color:transparent;font-weight:900;margin:20px 0;}
-.portada-info{text-align:left;display:inline-block;margin-top:20px;line-height:2.1;font-size:1rem;}
-.portada-info strong{color:var(--primary-color);}
-.portada-info p{margin:0;}
-
-/* ==================== PÁGINAS DE TEXTO ==================== */
-.text-page{padding:60px 8%;max-width:1100px;margin:0 auto;}
-.text-page h2{font-size:2.4rem;color:var(--primary-color);margin-bottom:25px;text-align:center;}
-.text-page h3{font-size:1.4rem;color:var(--secondary-color);margin:25px 0 12px;}
-.text-page p{color:var(--text-muted);font-size:1.05rem;line-height:1.85;margin-bottom:18px;text-align:justify;}
-.text-page ul{color:var(--text-muted);line-height:1.9;padding-left:30px;margin-bottom:18px;}
-.text-page ul li{margin-bottom:10px;}
-.text-page .highlight-box{background:linear-gradient(145deg,var(--surface-color),rgba(30,41,59,.5));border-left:4px solid var(--primary-color);padding:20px 25px;border-radius:12px;margin:20px 0;}
-
 /* ==================== PANEL ADMIN ==================== */
 .admin-stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;margin-bottom:30px;}
 .admin-stat-card{background:linear-gradient(145deg,var(--surface-color),rgba(30,41,59,.6));padding:25px;border-radius:20px;border:1px solid var(--card-border);text-align:center;transition:var(--transition);}
@@ -405,11 +379,6 @@ footer p{color:var(--text-muted);font-size:.9rem;margin-top:8px;}
 .role-cliente{background:rgba(56,189,248,.2);color:var(--primary-color);}
 
 @media (max-width:768px){
-  .portada-card{padding:35px 22px;}
-  .portada-card h1{font-size:1.05rem;}
-  .portada-project-name{font-size:1.15rem;}
-  .text-page{padding:40px 5%;}
-  .text-page h2{font-size:1.8rem;}
   .admin-tabs{flex-direction:column;}
   .admin-tab{width:100%;}
 }
@@ -437,9 +406,6 @@ footer p{color:var(--text-muted);font-size:.9rem;margin-top:8px;}
     <i class="fa-solid fa-bars"></i>
   </div>
   <ul class="nav-links" id="navMenu">
-    <li onclick="navigate('portada')">Portada</li>
-    <li onclick="navigate('intro')">Introducción</li>
-    <li onclick="navigate('objetivos')">Objetivos</li>
     <li onclick="navigate('home')" class="active-nav">Inicio</li>
     <li onclick="navigate('catalog')">Catálogo</li>
     <li onclick="navigate('branches')">Sucursales</li>
@@ -456,62 +422,8 @@ footer p{color:var(--text-muted);font-size:.9rem;margin-top:8px;}
 </nav>
 
 <main id="app">
-<!-- PORTADA -->
-<section id="page-portada" class="page">
-  <div class="portada-container">
-    <div class="portada-card">
-      <img src="https://ui-avatars.com/api/?name=INFRAMEN&size=200&background=38bdf8&color=fff&bold=true" alt="INFRAMEN" class="portada-logo">
-      <h1>INSTITUTO NACIONAL "GENERAL FRANCISCO MENÉNDEZ"</h1>
-      <h2>Bachillerato Técnico Vocacional en Desarrollo de Software</h2>
-      <h3>Módulo 3.1 · Feria de Logros 2026</h3>
-      <div class="portada-divider"></div>
-      <h2 class="portada-project-name">CelularSync Pro · Nexus GX</h2>
-      <div class="portada-info">
-        <p><strong>Integrantes:</strong> [Nombres de la pareja]</p>
-        <p><strong>Sección:</strong> _____</p>
-        <p><strong>Docente:</strong> Karla Lissbeth Mendoza Echeverría</p>
-        <p><strong>Módulo:</strong> 3.1 - Desarrollo de aplicaciones de software</p>
-        <p><strong>Fecha:</strong> Octubre 2026</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INTRODUCCIÓN -->
-<section id="page-intro" class="page">
-  <div class="text-page">
-    <h2>Introducción</h2>
-    <p>El presente proyecto, <strong>CelularSync Pro (Nexus GX)</strong>, nace como una solución tecnológica desarrollada en el marco del Módulo 3.1 del Bachillerato Técnico Vocacional en Desarrollo de Software del Instituto Nacional "General Francisco Menéndez".</p>
-    <p>La propuesta responde a la necesidad de las personas de contar con un catálogo digital moderno, accesible y confiable para la adquisición de dispositivos tecnológicos (celulares, computadoras, tablets, cargadores y audífonos) en El Salvador, ofreciendo una experiencia de compra ágil, segura y visualmente atractiva.</p>
-    <p>El sistema permite a los usuarios explorar productos con fichas técnicas completas, comparar precios y descuentos, gestionar un carrito de compras, registrarse, iniciar sesión de forma segura y descargar facturas formales en PDF con validez de garantía.</p>
-    <p>Adicionalmente, se incorpora un <strong>panel de administración</strong> con control de acceso por roles, que permite gestionar productos, usuarios y consultar reportes.</p>
-    <div class="highlight-box">
-      <p style="margin:0;"><strong>Tecnologías utilizadas:</strong> HTML5, CSS3, JavaScript, jsPDF, Font Awesome, LocalStorage y diseño responsive.</p>
-    </div>
-  </div>
-</section>
-
-<!-- OBJETIVOS -->
-<section id="page-objetivos" class="page">
-  <div class="text-page">
-    <h2>Objetivos</h2>
-    <h3>🎯 Objetivo General</h3>
-    <p>Desarrollar una página web funcional de comercio electrónico que permita la gestión completa de un catálogo de dispositivos tecnológicos, integrando autenticación de usuarios, roles de acceso, generación de reportes y comprobantes digitales, aplicando los conocimientos adquiridos en el Módulo 3.1.</p>
-    <h3>📌 Objetivos Específicos</h3>
-    <ul>
-      <li>Diseñar una interfaz moderna, responsiva y atractiva con navegación clara entre los módulos del sistema.</li>
-      <li>Implementar autenticación segura con registro, inicio de sesión y control de acceso por roles (Administrador y Cliente).</li>
-      <li>Desarrollar un panel de administración que permita gestionar productos (crear, editar y eliminar) y visualizar usuarios registrados.</li>
-      <li>Integrar un carrito de compras funcional con cálculo automático de subtotal, descuentos, IVA y total.</li>
-      <li>Generar comprobantes de compra en PDF con formato profesional.</li>
-      <li>Aplicar validaciones de formularios para garantizar la integridad de la información.</li>
-      <li>Presentar reportes visuales que permitan analizar el volumen de ventas.</li>
-    </ul>
-  </div>
-</section>
-
 <!-- INICIO -->
-<section id="page-home" class="page">
+<section id="page-home" class="page active">
   <div class="hero">
     <div class="hero-container">
       <div class="hero-left-solar reveal">
